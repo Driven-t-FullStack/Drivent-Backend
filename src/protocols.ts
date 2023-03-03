@@ -30,3 +30,10 @@ export type RequestError = {
   name: string,
   message: string,
 };
+
+export type BodyTicketType = {
+  name: string,
+  price: number,
+  isRemote: boolean,
+  includesHotel: boolean
+}
