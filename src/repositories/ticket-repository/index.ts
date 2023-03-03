@@ -56,6 +56,21 @@ async function ticketProcessPayment(ticketId: number) {
   });
 }
 
+async function createTicketType(
+  name: string,
+  price: number,
+  isRemote: boolean,
+  includesHotel: boolean) {
+  return prisma.ticketType.create({
+    data: {
+      name,
+      price,
+      includesHotel,
+      isRemote
+    },
+  })
+}
+
 export type CreateTicketParams = Omit<Ticket, "id" | "createdAt" | "updatedAt">
 
 const ticketRepository = {
@@ -65,6 +80,7 @@ const ticketRepository = {
   findTickeyById,
   findTickeWithTypeById,
   ticketProcessPayment,
+  createTicketType
 };
 
 export default ticketRepository;
