@@ -1,5 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import dayjs from "dayjs";
+import { PrismaClient } from '@prisma/client';
+import dayjs from 'dayjs';
+import { truncate } from 'fs/promises';
 const prisma = new PrismaClient();
 
 async function main() {
@@ -7,14 +8,22 @@ async function main() {
   if (!event) {
     event = await prisma.event.create({
       data: {
-        title: "Driven.t",
-        logoImageUrl: "https://files.driveneducation.com.br/images/logo-rounded.png",
-        backgroundImageUrl: "linear-gradient(to right, #FA4098, #FFD77F)",
+        title: 'Driven.t',
+        logoImageUrl: 'https://files.driveneducation.com.br/images/logo-rounded.png',
+        backgroundImageUrl: 'linear-gradient(to right, #FA4098, #FFD77F)',
         startsAt: dayjs().toDate(),
-        endsAt: dayjs().add(21, "days").toDate(),
+        endsAt: dayjs().add(21, 'days').toDate(),
       },
     });
   }
+
+  prisma.ticketType.createMany({
+    data: [
+      { name: 'Presencial', price: 250, isRemote: false, includesHotel: false },
+      { name: 'Presencial', price: 400, isRemote: false, includesHotel: true },
+      { name: 'Online', price: 100, isRemote: true, includesHotel: false },
+    ],
+  });
 
   console.log({ event });
 }
