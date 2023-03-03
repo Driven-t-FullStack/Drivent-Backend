@@ -23,6 +23,7 @@ npm i
 
 ```bash
 npm run migration:run
+npm run dev:migration:run  // development
 ```
 
 6. Seed db
