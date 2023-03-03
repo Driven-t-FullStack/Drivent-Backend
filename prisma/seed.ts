@@ -17,7 +17,7 @@ async function main() {
     });
   }
 
-  prisma.ticketType.createMany({
+  await prisma.ticketType.createMany({
     data: [
       { name: 'Presencial', price: 250, isRemote: false, includesHotel: false },
       { name: 'Presencial', price: 400, isRemote: false, includesHotel: true },

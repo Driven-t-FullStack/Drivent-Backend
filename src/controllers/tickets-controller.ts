@@ -1,4 +1,5 @@
 import { AuthenticatedRequest } from "@/middlewares";
+import { BodyTicketType } from "@/protocols";
 import ticketService from "@/services/tickets-service";
 import { Response } from "express";
 import httpStatus from "http-status";
@@ -27,8 +28,6 @@ export async function getTickets(req: AuthenticatedRequest, res: Response) {
 
 export async function createTicket(req: AuthenticatedRequest, res: Response) {
   const { userId } = req;
-
-  //TODO validação do JOI
   const { ticketTypeId } = req.body;
 
   if (!ticketTypeId) {
@@ -41,6 +40,17 @@ export async function createTicket(req: AuthenticatedRequest, res: Response) {
     return res.status(httpStatus.CREATED).send(ticketTypes);
   } catch (error) {
     return res.sendStatus(httpStatus.NOT_FOUND);
+  }
+}
+
+export async function createTicketType(req: AuthenticatedRequest, res: Response) {
+  const body = req.body as BodyTicketType;
+  const { name, price, isRemote, includesHotel } = body
+  try {
+    const ticketType = await ticketService.createTicketType(name, price, isRemote, includesHotel);
+    return res.status(httpStatus.CREATED).send(ticketType)
+  } catch (err) {
+    return res.sendStatus(httpStatus.BAD_REQUEST);
   }
 }
 
