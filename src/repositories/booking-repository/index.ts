@@ -9,7 +9,7 @@ async function create({ roomId, userId }: CreateParams): Promise<Booking> {
     data: {
       roomId,
       userId,
-    }
+    },
   });
 }
 
@@ -20,7 +20,7 @@ async function findByRoomId(roomId: number) {
     },
     include: {
       Room: true,
-    }
+    },
   });
 }
 
@@ -30,8 +30,13 @@ async function findByUserId(userId: number) {
       userId,
     },
     include: {
-      Room: true,
-    }
+      Room: {
+        include: {
+          Hotel: true,
+          Booking: true,
+        },
+      },
+    },
   });
 }
 
@@ -46,7 +51,7 @@ async function upsertBooking({ id, roomId, userId }: UpdateParams) {
     },
     update: {
       roomId,
-    }
+    },
   });
 }
 
