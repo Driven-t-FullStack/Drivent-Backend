@@ -29,7 +29,7 @@ async function main() {
     data: {
       name: "Driven Palace",
       image:
-        "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.luxurylink.com%2Fimages%2Fsho_600b47e9%2F1252_601-630%2Fimage-1252_601.jpg&imgrefurl=http%3A%2F%2Fwww.luxurylink.com%2F5star%2Fhotel-deals%2Farizona&tbnid=MolJc088V2VioM&vet=12ahUKEwjZmuiAkdD9AhUnNLkGHfLCAkcQMygEegUIARDDAQ..i&docid=0A3WGpxY1m5NIM&w=630&h=379&q=fancy%20hotels&ved=2ahUKEwjZmuiAkdD9AhUnNLkGHfLCAkcQMygEegUIARDDAQ",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Gd6xQoVvX0CaHeRzwbkRlAk76N_k40_jWQ&usqp=CAU",
       type: "Single, Double e Triple",
       Rooms: {
         create: [
@@ -49,7 +49,7 @@ async function main() {
     data: {
       name: "Driven Resort",
       image:
-        "https://www.google.com/imgres?imgurl=https%3A%2F%2Fsecure.s.forbestravelguide.com%2Fimg%2Fproperties%2Fthe-maybourne-beverly-hills%2Fthe-maybourne-beverly-hills-exterior.jpg&imgrefurl=https%3A%2F%2Fwww.forbestravelguide.com%2Fdestinations%2Flos-angeles-california&tbnid=f-YcDsIjPM2cBM&vet=12ahUKEwjZmuiAkdD9AhUnNLkGHfLCAkcQMygOegUIARDZAQ..i&docid=t1QvwR5IsXg2pM&w=760&h=425&q=fancy%20hotels&ved=2ahUKEwjZmuiAkdD9AhUnNLkGHfLCAkcQMygOegUIARDZAQ",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZj5ETDAoTl4de8QyVL-yrzZ-5LXbPL62nBg&usqp=CAU",
       type: "Single e Double",
       Rooms: {
         create: [
@@ -66,7 +66,7 @@ async function main() {
     data: {
       name: "Driven World",
       image:
-        "https://www.google.com/imgres?imgurl=https%3A%2F%2Fimgix.theurbanlist.com%2Fcontent%2Farticle%2Fmelbourne-best-hotels-the-chen.jpg&imgrefurl=https%3A%2F%2Fwww.theurbanlist.com%2Fmelbourne%2Fa-list%2Fbest-hotels-melbourne&tbnid=doYjEXfvJqgF0M&vet=12ahUKEwjZmuiAkdD9AhUnNLkGHfLCAkcQMyghegUIARCEAg..i&docid=SnRrhk8g0P-_LM&w=740&h=487&q=fancy%20hotels&ved=2ahUKEwjZmuiAkdD9AhUnNLkGHfLCAkcQMyghegUIARCEAg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpBJDSdUoa_MHQXKsg3lxvuxTqYCL7SU5XA&usqp=CAU",
       type: "Single e Double",
       Rooms: {
         create: [
