@@ -28,8 +28,7 @@ async function main() {
   await prisma.hotel.create({
     data: {
       name: "Driven Palace",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Gd6xQoVvX0CaHeRzwbkRlAk76N_k40_jWQ&usqp=CAU",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Gd6xQoVvX0CaHeRzwbkRlAk76N_k40_jWQ&usqp=CAU",
       type: "Single, Double e Triple",
       Rooms: {
         create: [
@@ -48,8 +47,7 @@ async function main() {
   await prisma.hotel.create({
     data: {
       name: "Driven Resort",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZj5ETDAoTl4de8QyVL-yrzZ-5LXbPL62nBg&usqp=CAU",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZj5ETDAoTl4de8QyVL-yrzZ-5LXbPL62nBg&usqp=CAU",
       type: "Single e Double",
       Rooms: {
         create: [
@@ -65,8 +63,7 @@ async function main() {
   await prisma.hotel.create({
     data: {
       name: "Driven World",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpBJDSdUoa_MHQXKsg3lxvuxTqYCL7SU5XA&usqp=CAU",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpBJDSdUoa_MHQXKsg3lxvuxTqYCL7SU5XA&usqp=CAU",
       type: "Single e Double",
       Rooms: {
         create: [
@@ -80,6 +77,11 @@ async function main() {
       },
     },
   });
+  const firstDate = new Date("2023-03-17");
+  const secondDate = new Date("2023-03-18");
+
+  await prisma.activityDate.createMany({ data: [{ date: firstDate }, { date: secondDate }] });
+
   console.log({ event });
 }
 
