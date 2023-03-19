@@ -91,8 +91,8 @@ async function main() {
     data: {
       name: "Busca binária: Aprendendo algoritmo",
       vacancies: 40,
-      startTime: new Date("2023-03-17T07:00:00.000"),
-      endTime: new Date("2023-03-17T08:00:00.000"),
+      startTime: new Date("2023-03-17T09:00:00.000"),
+      endTime: new Date("2023-03-17T10:00:00.000"),
       activityDateId: activityDateOne.id,
       hallId: hallOne.id,
     },
@@ -102,8 +102,8 @@ async function main() {
     data: {
       name: "Hashtable: Quando usar?",
       vacancies: 25,
-      startTime: new Date("2023-03-17T14:15:00.000"),
-      endTime: new Date("2023-03-17T16:00:00.000"),
+      startTime: new Date("2023-03-17T14:00:00.000"),
+      endTime: new Date("2023-03-17T15:00:00.000"),
       activityDateId: activityDateOne.id,
       hallId: hallOne.id,
     },
@@ -113,8 +113,8 @@ async function main() {
     data: {
       name: "Palestra y",
       vacancies: 25,
-      startTime: new Date("2023-03-17T14:15:00.000"),
-      endTime: new Date("2023-03-17T16:00:00.000"),
+      startTime: new Date("2023-03-17T09:00:00.000"),
+      endTime: new Date("2023-03-17T12:00:00.000"),
       activityDateId: activityDateOne.id,
       hallId: hallTwo.id,
     },
@@ -123,9 +123,9 @@ async function main() {
   await prisma.activity.create({
     data: {
       name: "Palestra z",
-      vacancies: 25,
-      startTime: new Date("2023-03-17T08:15:00.000"),
-      endTime: new Date("2023-03-17T10:00:00.000"),
+      vacancies: 0,
+      startTime: new Date("2023-03-17T09:15:00.000"),
+      endTime: new Date("2023-03-17T13:00:00.000"),
       activityDateId: activityDateOne.id,
       hallId: hallTwo.id,
     },
@@ -135,8 +135,8 @@ async function main() {
     data: {
       name: "Palestra w",
       vacancies: 25,
-      startTime: new Date("2023-03-17T08:15:00.000"),
-      endTime: new Date("2023-03-17T10:00:00.000"),
+      startTime: new Date("2023-03-17T10:30:00.000"),
+      endTime: new Date("2023-03-17T12:00:00.000"),
       activityDateId: activityDateOne.id,
       hallId: hallThree.id,
     },
@@ -146,8 +146,8 @@ async function main() {
     data: {
       name: "Palestra g",
       vacancies: 25,
-      startTime: new Date("2023-03-17T08:15:00.000"),
-      endTime: new Date("2023-03-17T10:00:00.000"),
+      startTime: new Date("2023-03-18T15:00:00.000"),
+      endTime: new Date("2023-03-18T18:00:00.000"),
       activityDateId: activityDateTwo.id,
       hallId: hallOne.id,
     },
