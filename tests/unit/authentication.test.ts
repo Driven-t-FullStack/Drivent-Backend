@@ -1,29 +1,25 @@
 import authenticationService, { SignInParams, SignInResult } from "@/services/authentication-service";
 import userRepository from "@/repositories/user-repository";
 import sessionRepository from "@/repositories/session-repository";
-import { ApplicationError } from "@/protocols";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { User } from "@prisma/client";
 
 
 describe("authenticationService test suite", () => {
     const user: SignInParams = { email: 'teste@teste.com', password: '123456' }
     const token = 'HASH_MOCKADO';
     it("should respond with error message 'email or password are incorrect' 1", async () => {
-        let result: ApplicationError | SignInResult;
         jest.spyOn(userRepository, "findByEmail").mockImplementationOnce((): any => {
-            return null
+            return undefined
         });
-        result = await authenticationService.signIn(user).catch((e) => result = e);
-        expect(result).toEqual({
+        const result = authenticationService.signIn(user);
+        expect(result).rejects.toEqual({
             name: "InvalidCredentialsError",
             message: "email or password are incorrect",
         })
     });
 
     it("should respond with error message 'email or password are incorrect' 2", async () => {
-        let result: ApplicationError | SignInResult;
         jest.spyOn(userRepository, "findByEmail").mockImplementation((): any => {
             return {
                 id: 1,
@@ -37,8 +33,8 @@ describe("authenticationService test suite", () => {
         jest.spyOn(bcrypt, 'compare').mockImplementationOnce(() => {
             return false
         })
-        result = await authenticationService.signIn(user).catch((e) => result = e);
-        expect(result).toEqual({
+        const result = authenticationService.signIn(user);
+        expect(result).rejects.toEqual({
             name: "InvalidCredentialsError",
             message: "email or password are incorrect",
         })
@@ -65,7 +61,7 @@ describe("authenticationService test suite", () => {
         jest.spyOn(jwt, 'sign').mockImplementation((): any => {
             return token
         });
-        const result = await authenticationService.signIn(user).catch((e) => console.log(e))
+        const result = await authenticationService.signIn(user);
         expect(result).toEqual({ user: { email: user.email, id: 1 }, token })
     })
 })
