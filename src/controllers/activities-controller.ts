@@ -3,13 +3,30 @@ import activitiesService from "@/services/activities-service";
 import { Response } from "express";
 import httpStatus from "http-status";
 
-export async function getActivies(req: AuthenticatedRequest, res: Response) {
+export async function getActivitiesDates(req: AuthenticatedRequest, res: Response) {
   const userId = req.userId;
 
   try {
-    const activies = await activitiesService.getActivities(userId);
+    const data = await activitiesService.getActivitiesDates(userId);
 
-    return res.status(httpStatus.OK).send(activies);
+    return res.status(httpStatus.OK).send(data);
+  } catch (err) {
+    if (err.name === "NotFoundError") {
+      return res.sendStatus(httpStatus.BAD_REQUEST);
+    }
+    if (err.name === "UnauthorizedError") {
+      return res.sendStatus(httpStatus.UNAUTHORIZED);
+    }
+  }
+}
+
+export async function getActivities(req: AuthenticatedRequest, res: Response) {
+  const userId = req.userId;
+  const dateId = Number(req.params.dateId);
+  try {
+    const activities = await activitiesService.getActivities(userId, dateId);
+
+    return res.status(httpStatus.OK).send(activities);
   } catch (err) {
     if (err.name === "NotFoundError") {
       return res.sendStatus(httpStatus.BAD_REQUEST);

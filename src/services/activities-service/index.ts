@@ -19,14 +19,22 @@ async function validateGetActivtyRequest(userId: number) {
   return ticket.TicketType.isRemote;
 }
 
-async function getActivities(userId: number) {
-  const ticketType = await validateGetActivtyRequest(userId);
+async function getActivitiesDates(userId: number) {
+  const isRemote = await validateGetActivtyRequest(userId);
 
-  const activities = await activiesRepository.findMany();
+  const dates = await activiesRepository.findMany();
 
-  return { ticketType, activities };
+  return { isRemote, dates };
 }
 
-const activitiesService = { getActivities };
+async function getActivities(userId: number, dateId: number) {
+  await validateGetActivtyRequest(userId);
+
+  const activities = await activiesRepository.findManyActivities(dateId);
+
+  return activities;
+}
+
+const activitiesService = { getActivitiesDates, getActivities };
 
 export default activitiesService;
