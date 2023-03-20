@@ -7,6 +7,7 @@ export async function createHotel() {
     data: {
       name: faker.name.findName(),
       image: faker.image.imageUrl(),
+      type: 'Single, Double e Triple'
     }
   });
 }
