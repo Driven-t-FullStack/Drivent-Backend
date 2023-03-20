@@ -29,10 +29,9 @@ function checkUserEnrollmentOnActivity(vector: activityVector, userId: number) {
         activity.isEnrolled = false;
       } else {
         activity.UserOnActivity.forEach((user) => {
-          if (user.userId === userId) {
+          if (user.userId === userId && activity.isEnrolled === false) {
             activity.isEnrolled = true;
-            return;
-          } else {
+          } else if (user.userId !== userId && activity.isEnrolled === false) {
             activity.isEnrolled = false;
           }
         });
