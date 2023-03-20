@@ -145,6 +145,7 @@ model ActivityDate {
   id       Int        @id @default(autoincrement())
   date     DateTime
   Activity Activity[]
+  @@index([id])
 }
 
 model Hall {
