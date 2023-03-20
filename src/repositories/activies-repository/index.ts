@@ -11,6 +11,12 @@ async function findManyActivities(dateId: number) {
         where: {
           activityDateId: dateId,
         },
+        select: {
+          name: true,
+          startTime: true,
+          endTime: true,
+          UserOnActivity: true,
+        },
       },
     },
   });
