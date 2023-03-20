@@ -169,8 +169,8 @@ model Activity {
 model UserOnActivity {
   id         Int      @id @default(autoincrement())
   userId     Int
-  ActivityId Int
+  activityId Int
   User       User     @relation(fields: [userId], references: [id])
-  Activity   Activity @relation(fields: [ActivityId], references: [id])
+  Activity   Activity @relation(fields: [activityId], references: [id])
 }
 
