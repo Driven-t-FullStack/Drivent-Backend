@@ -80,7 +80,72 @@ async function main() {
   const firstDate = new Date("2023-03-17");
   const secondDate = new Date("2023-03-18");
 
-  await prisma.activityDate.createMany({ data: [{ date: firstDate }, { date: secondDate }] });
+  const activityDateOne = await prisma.activityDate.create({ data: { date: firstDate } });
+  const activityDateTwo = await prisma.activityDate.create({ data: { date: secondDate } });
+
+  const hallOne = await prisma.hall.create({ data: { name: "Auditório Principal", capacity: 25 } });
+  const hallTwo = await prisma.hall.create({ data: { name: "Auditório Lateral", capacity: 50 } });
+  const hallThree = await prisma.hall.create({ data: { name: "Sala de Workshop", capacity: 4 } });
+
+  await prisma.activity.create({
+    data: {
+      name: "Busca binária: Aprendendo algoritmo",
+      startTime: new Date("2023-03-17T09:00:00.000"),
+      endTime: new Date("2023-03-17T10:00:00.000"),
+      activityDateId: activityDateOne.id,
+      hallId: hallOne.id,
+    },
+  });
+
+  await prisma.activity.create({
+    data: {
+      name: "Hashtable: Quando usar?",
+      startTime: new Date("2023-03-17T14:00:00.000"),
+      endTime: new Date("2023-03-17T15:00:00.000"),
+      activityDateId: activityDateOne.id,
+      hallId: hallOne.id,
+    },
+  });
+
+  await prisma.activity.create({
+    data: {
+      name: "Palestra y",
+      startTime: new Date("2023-03-17T09:00:00.000"),
+      endTime: new Date("2023-03-17T12:00:00.000"),
+      activityDateId: activityDateOne.id,
+      hallId: hallTwo.id,
+    },
+  });
+
+  await prisma.activity.create({
+    data: {
+      name: "Palestra z",
+      startTime: new Date("2023-03-17T09:15:00.000"),
+      endTime: new Date("2023-03-17T13:00:00.000"),
+      activityDateId: activityDateOne.id,
+      hallId: hallTwo.id,
+    },
+  });
+
+  await prisma.activity.create({
+    data: {
+      name: "Palestra w",
+      startTime: new Date("2023-03-17T10:30:00.000"),
+      endTime: new Date("2023-03-17T12:00:00.000"),
+      activityDateId: activityDateOne.id,
+      hallId: hallThree.id,
+    },
+  });
+
+  await prisma.activity.create({
+    data: {
+      name: "Palestra g",
+      startTime: new Date("2023-03-18T15:00:00.000"),
+      endTime: new Date("2023-03-18T18:00:00.000"),
+      activityDateId: activityDateTwo.id,
+      hallId: hallOne.id,
+    },
+  });
 
   console.log({ event });
 }
